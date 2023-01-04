@@ -117,78 +117,49 @@ namespace ARLocation
                 Locations.Add(locations);
             }
 
-            foreach (Datum userData in localLocationList.data)
-            {
-                Debug.Log("Data = " + userData.location_type);
-                LocationList.Add(userData.location_type);
-            }
-
-            int index = 0;
+            int index;
+            int counter = 0;
             foreach (var entry in Locations)
             {
-                //for (int i = 0; i < LocationType.Length; i++)
-                //    {
-                //    foreach (Datum userData in localLocationList.data)
-                //    {
-                //        if (userData.location_type == LocationType[i])
-                //        {
-                //            SelectedModel = Models[i];
-                //            Debug.Log("check");
-                //        }
-                //        else
-                //        {
-                //            SelectedModel = Models[0];
-                //            Debug.Log("checknot");
-                //        }
-                //    }
-                //        //index++;
-                //         }
-                //for (int i = 0; i < LocationType.Length; i++)
-                //{
+                if (localLocationList.data[counter].location_type == "car")
+                {
+                    index = 0;
+                    var newLoc = entry.GetLocation();
+                    AddLocation(newLoc, index);
 
-                  //  Debug.Log();
-                //    foreach (Datum userData in localLocationList.data)
-                //    {
-                //        if (userData.location_type == "car")
-                //        {
-                //            SelectedModel = Models[0];
-                //            Debug.Log("check" + SelectedModel.name);
-                //        }
-
-                //        if (userData.location_type == "bike")
-                //        {
-                //            SelectedModel = Models[1];
-                //            Debug.Log("check" + SelectedModel.name);
-                //        }
-
-                //        if (userData.location_type == "bus")
-                //        {
-                //            SelectedModel = Models[2];
-                //            Debug.Log("check" + SelectedModel.name);
-                //        }
-
-                //        if (userData.location_type == "cycle")
-                //        {
-                //            SelectedModel = Models[3];
-                //            Debug.Log("check" + SelectedModel.name);
-                //        }
-                //        //else
-                //        //{
-                //        //    SelectedModel = Models[0];
-                //        //    Debug.Log("checknot");
-                //        //}
-                //   // }
-                //    //index++;
-                //}
-                var newLoc = entry.GetLocation();
-                AddLocation(newLoc, index);
-                UsersCounter++;
+                }
+                else if (localLocationList.data[counter].location_type == "bike")
+                {
+                    index = 1;
+                    var newLoc = entry.GetLocation();
+                    AddLocation(newLoc, index);
+                }
+                else if (localLocationList.data[counter].location_type == "bus")
+                {
+                    index = 2;
+                    var newLoc = entry.GetLocation();
+                    AddLocation(newLoc, index);
+                }
+                else if (localLocationList.data[counter].location_type == "cycle")
+                {
+                    index = 3;
+                    var newLoc = entry.GetLocation();
+                    AddLocation(newLoc, index);
+                }
+                else
+                {
+                    index = 0;
+                    var newLoc = entry.GetLocation();
+                    AddLocation(newLoc, index);
+                }
+                counter++;
                 Debug.Log(" UsersCounter" + UsersCounter);
+                //index++;
+                canCalculateDistance = true;
             }
-            canCalculateDistance = true;
+            UsersCounter++;
             //DebugLocationOnCanvas();
         }
-
         private void DebugLocationOnCanvas()
         {
             foreach (GameObject item in instances)
@@ -199,8 +170,8 @@ namespace ARLocation
 
         public void AddLocation(Location location, int index)
         {
-                int prefabIndex = 1;
-                GameobjectToSpawn = Prefabs[prefabIndex];
+             //   int prefabIndex = 1;
+                GameobjectToSpawn = Prefabs[index];
                // var instance = PlaceAtLocation.CreatePlacedInstance(SelectedModel, location, PlacementOptions, DebugMode);
                  var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
                  //Debug.Log("check name"+SelectedModel.name);
