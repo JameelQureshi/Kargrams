@@ -1,0 +1,57 @@
+{
+    "_steamId": "",
+    "_displayName": "DexiHunter",
+    "_globalConfiguration": {
+        "_domainProtocols": [],
+        "_deepLinkingProtocols": [],
+        "_initialized": false
+    },
+    "_customDeepLinkingProtocols": [
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [],
+            "_initialized": false
+        },
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [
+                {
+                    "_scheme": "app.dexihunter.com",
+                    "_host": "app.dexihunter.com",
+                    "_path": ""
+                },
+                {
+                    "_scheme": "app.dexihunter.wallet",
+                    "_host": "app.dexihunter.wallet",
+                    "_path": ""
+                }
+            ],
+            "_initialized": true
+        },
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [],
+            "_initialized": false
+        },
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [],
+            "_initialized": false
+        },
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [],
+            "_initialized": false
+        },
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [],
+            "_initialized": false
+        },
+        {
+            "_domainProtocols": [],
+            "_deepLinkingProtocols": [],
+            "_initialized": false
+        }
+    ]
+}

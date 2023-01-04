@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "446135554193",
+    "firebase_url": "https://dexihunter-9db88-default-rtdb.firebaseio.com",
+    "project_id": "dexihunter-9db88",
+    "storage_bucket": "dexihunter-9db88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446135554193:ios:42eef06fe5aad135166f30",
+        "android_client_info": {
+          "package_name": "com.Dexioprotocol.DexiHunter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446135554193-0ar5msmrrnvc53nr417rd9vg6d4liqp5.apps.googleusercontent.com"
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_f_6gZ2CZWAPpqPW4_D2WDRY96Cgk9NU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
