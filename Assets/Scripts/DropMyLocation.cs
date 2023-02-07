@@ -91,15 +91,14 @@ public class DropMyLocation : MonoBehaviour
         radius = 50;
         latitude = Input.location.lastData.latitude;
         longitude = Input.location.lastData.longitude;
+        //Extra
+        Location_type = "bike";
         AuthManager.instance.AddLocation(latitude, longitude, radius,UserName, Location_type.ToLower());
     }
 
     public void GetLocationType()
     {
-        // Location_type = gameObject.tag.ToString();
         Location_type = EventSystem.current.currentSelectedGameObject.name;
-
-        Debug.Log(Location_type);
     }
 
 
