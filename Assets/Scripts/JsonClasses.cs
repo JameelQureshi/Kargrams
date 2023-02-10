@@ -90,6 +90,8 @@ public class Datum
     public string updated_at;
     public string radius;
     public string location_type;
+    public string image;
+
 }
 [Serializable]
 public class LocationRoot

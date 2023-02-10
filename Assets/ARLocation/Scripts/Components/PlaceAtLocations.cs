@@ -121,37 +121,39 @@ namespace ARLocation
             int counter = 0;
             foreach (var entry in Locations)
             {
-                if (localLocationList.data[counter].location_type == "car")
-                {
-                    index = 0;
-                    var newLoc = entry.GetLocation();
-                    AddLocation(newLoc, index);
+                //if (localLocationList.data[counter].location_type == "car")
+                //{
+                //    index = 0;
+                //    var newLoc = entry.GetLocation();
+                //    AddLocation(newLoc, index);
 
-                }
-                else if (localLocationList.data[counter].location_type == "bike")
-                {
-                    index = 1;
-                    var newLoc = entry.GetLocation();
-                    AddLocation(newLoc, index);
-                }
-                else if (localLocationList.data[counter].location_type == "bus")
-                {
-                    index = 2;
-                    var newLoc = entry.GetLocation();
-                    AddLocation(newLoc, index);
-                }
-                else if (localLocationList.data[counter].location_type == "cycle")
-                {
-                    index = 3;
-                    var newLoc = entry.GetLocation();
-                    AddLocation(newLoc, index);
-                }
-                else
-                {
-                    index = 0;
-                    var newLoc = entry.GetLocation();
-                    AddLocation(newLoc, index);
-                }
+                //}
+                //else if (localLocationList.data[counter].location_type == "bike")
+                //{
+                //    index = 1;
+                //    var newLoc = entry.GetLocation();
+                //    AddLocation(newLoc, index);
+                //}
+                //else if (localLocationList.data[counter].location_type == "bus")
+                //{
+                //    index = 2;
+                //    var newLoc = entry.GetLocation();
+                //    AddLocation(newLoc, index);
+                //}
+                //else if (localLocationList.data[counter].location_type == "cycle")
+                //{
+                //    index = 3;
+                //    var newLoc = entry.GetLocation();
+                //    AddLocation(newLoc, index);
+                //}
+                //else
+                //{
+                //    index = 0;
+                //    var newLoc = entry.GetLocation();
+                //    AddLocation(newLoc, index);
+                //}
+                var newLoc = entry.GetLocation();
+                AddLocation(newLoc, 0);
                 counter++;
                 Debug.Log(" UsersCounter" + UsersCounter);
                 //index++;
@@ -172,9 +174,10 @@ namespace ARLocation
         {
              //   int prefabIndex = 1;
                 GameobjectToSpawn = Prefabs[index];
-               // var instance = PlaceAtLocation.CreatePlacedInstance(SelectedModel, location, PlacementOptions, DebugMode);
-                 var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
-                 //Debug.Log("check name"+SelectedModel.name);
+                var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
+
+           
+
                 instance.name = $"{gameObject.name} - {locations.Count}";
                 locations.Add(location);
                 instances.Add(instance);

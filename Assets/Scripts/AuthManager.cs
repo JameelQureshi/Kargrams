@@ -70,7 +70,6 @@ public class AuthManager : MonoBehaviour
     public void PlaceLocation()
     {
         Debug.Log("Get LOC");
-
         StartCoroutine(GetLocationStCoroutine());
     }
     public void LoginUser(string username, string password)
@@ -128,6 +127,8 @@ public class AuthManager : MonoBehaviour
 
     IEnumerator CreateLocationStCoroutine(string lat, string lng, int radius, string name, string location_type)
     {
+        NativeGalleryScript.instance.texture = DuplicateTexture(NativeGalleryScript.instance.texture);
+        byte[] img = NativeGalleryScript.instance.texture.EncodeToJPG();
 
         WWWForm form = new WWWForm();
         form.AddField("lat", Input.location.lastData.latitude.ToString());
@@ -135,6 +136,7 @@ public class AuthManager : MonoBehaviour
         form.AddField("radius", "60");
         form.AddField("name", name);
         form.AddField("location_type", location_type);
+        form.AddBinaryData("image", img);
 
         string requestName = "/api/v1/locations";
         using (UnityWebRequest www = UnityWebRequest.Post(BASE_URL + requestName, form))
@@ -157,7 +159,21 @@ public class AuthManager : MonoBehaviour
         }
     }
 
- IEnumerator GetLocationStCoroutine()
+
+
+
+    Texture2D DuplicateTexture(Texture2D source)
+    {
+        byte[] pix = source.GetRawTextureData();
+        Texture2D readableText = new Texture2D(source.width, source.height, source.format, false);
+        readableText.LoadRawTextureData(pix);
+        readableText.Apply();
+        return readableText;
+    }
+
+
+
+    IEnumerator GetLocationStCoroutine()
     {
         LoadingManager.instance.loading.SetActive(true);
         WWWForm form = new WWWForm();

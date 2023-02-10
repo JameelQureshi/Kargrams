@@ -280,7 +280,7 @@ namespace ARLocation
                 if (UseGroundHeight)
                 {
                     groundHeight = gameObject.AddComponent<GroundHeight>();
-                    groundHeight.Settings.Altitude = (float)state.Location.Altitude;
+                    groundHeight.Settings.Altitude = 2.1f;
                 }
 
                 if (PlacementOptions.UseMovingAverage)

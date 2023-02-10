@@ -10,7 +10,7 @@ using TMPro;
 
 public class ARItem : MonoBehaviour
 {
-
+    public static ARItem instance;
     public GameObject[] effects;
     public Datum ARuser;
 
@@ -37,6 +37,44 @@ public class ARItem : MonoBehaviour
     public bool isOpening = false;
     public bool StopRotation = false;
 
+    public string URL;
+
+    private void Start()
+    {
+        URL = ARuser.image;
+        Debug.Log("Got url of image = " + URL);
+        StartCoroutine(GetTexture());
+        Debug.Log("Get Texture function called");
+
+        Debug.Log("here is the url of image = " + ARuser);
+    }
+    IEnumerator GetTexture()
+    {
+        Debug.Log("Into the function");
+        WWW www = new WWW(URL);
+        Debug.Log("i don't know what to say here");
+        yield return www;
+        Debug.Log("Texture Downloaded");
+        Texture2D texture = new Texture2D(1, 1);
+        Debug.Log("Got the texture + " + texture);
+        www.LoadImageIntoTexture(texture);
+        Debug.Log("Load Image Into Texture");
+        GameObject image = gameObject.transform.Find("Cube").gameObject;
+        Debug.Log("Got the cube");
+        image.GetComponent<Renderer>().material.mainTexture = texture;
+        Debug.Log("paste texture to the material");
+    }
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     public void OpenChest()
     {
         isOpening = true;
@@ -132,18 +170,17 @@ public class ARItem : MonoBehaviour
         DoneCollection();
         LoadingManager.instance.loading.SetActive(false);
         Invoke(nameof(DoneCollection), 3.0f);
-        //StartCoroutine(ConsumeLocation(ARuser));
+        StartCoroutine(ConsumeLocation());
 
     }
     IEnumerator ConsumeLocation()
     {
-        Debug.Log("ConsumeLocation Start");
         WWWForm form = new WWWForm();
       //  form.AddField("id", id);
         string requestName = "api/v1/locations/consumed";
         using (UnityWebRequest www = UnityWebRequest.Post(AuthManager.BASE_URL + requestName, form))
         {
-            www.SetRequestHeader("Authorization", "Bearer " + Auth0Manager.AccessToken);
+            www.SetRequestHeader("Authorization", "Bearer " + AuthManager.Token);
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)

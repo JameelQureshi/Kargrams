@@ -92,7 +92,7 @@ public class DropMyLocation : MonoBehaviour
         latitude = Input.location.lastData.latitude;
         longitude = Input.location.lastData.longitude;
         //Extra
-        Location_type = "bike";
+        Location_type = "";
         AuthManager.instance.AddLocation(latitude, longitude, radius,UserName, Location_type.ToLower());
     }
 

@@ -1097,6 +1097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1486533604}
   - component: {fileID: 1486533603}
+  - component: {fileID: 1486533605}
   m_Layer: 0
   m_Name: PlaceAtLocations
   m_TagString: Untagged
@@ -1124,7 +1125,7 @@ MonoBehaviour:
   - bus
   - cycle
   Models:
-  - {fileID: 7067090760906768013, guid: 98e40d6c843cc444da46346f02175b5e, type: 3}
+  - {fileID: 390831679346135632, guid: 9fdb5287fc3be4c9e866786ff3483830, type: 3}
   - {fileID: 6866509718839511773, guid: e8a92489e88d44146bbc34eb2f0017db, type: 3}
   - {fileID: 681858211271159323, guid: 4c61505c7ae1e44a5bf481ac7fd8d755, type: 3}
   - {fileID: 2077933049423666449, guid: 587566b484be142948cebf608e71dc81, type: 3}
@@ -1177,7 +1178,7 @@ MonoBehaviour:
   - {fileID: 222848446464465898, guid: ee3558123d2a74dfdbe78f8c3eee1134, type: 3}
   - {fileID: 7979718720263207043, guid: f636922563b4b4a5ea7d0e7c0fb415ed, type: 3}
   Prefabs:
-  - {fileID: 7067090760906768013, guid: 98e40d6c843cc444da46346f02175b5e, type: 3}
+  - {fileID: 390831679346135632, guid: 9fdb5287fc3be4c9e866786ff3483830, type: 3}
   - {fileID: 1196953851599986, guid: 5bcb8afe019d04efc83e86f56b198ce0, type: 3}
   - {fileID: 681858211271159323, guid: 4c61505c7ae1e44a5bf481ac7fd8d755, type: 3}
   - {fileID: 2077933049423666449, guid: 587566b484be142948cebf608e71dc81, type: 3}
@@ -1202,6 +1203,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486533605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486533602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2bc8234681fd448994249f431f4b8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  URL: 
 --- !u!1 &1492754199
 GameObject:
   m_ObjectHideFlags: 0

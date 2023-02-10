@@ -26,9 +26,9 @@ namespace ARLocation
         public class SettingsData
         {
             [Range(0, 10)]
-            public float InitialGroundHeightGuess = 1.4f;
+            public float InitialGroundHeightGuess = -2f;
             [Range(0, 10)]
-            public float MinGroundHeight = 0.4f;
+            public float MinGroundHeight = 2.5f;
             [Range(0, 10)]
             public float MaxGroundHeight = 3.0f;
             [Range(0, 1)]
