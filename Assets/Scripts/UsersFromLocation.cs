@@ -57,7 +57,6 @@ public class UsersFromLocation : MonoBehaviour
            // serverResponse.text = www.downloadHandler.text;
             ConsoleManager.instance.ShowMessage("Error "+ www.error);
             Debug.Log(AuthManager.BASE_URL + requestName + form);
-            Debug.Log(Auth0Manager.AccessToken);
             Debug.Log(www.error);
           //  serverResponse.text = www.error;
             LoadingManager.instance.loading.SetActive(false);

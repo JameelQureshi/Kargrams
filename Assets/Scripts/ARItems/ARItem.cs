@@ -41,28 +41,34 @@ public class ARItem : MonoBehaviour
 
     private void Start()
     {
-        URL = ARuser.image;
-        Debug.Log("Got url of image = " + URL);
-        StartCoroutine(GetTexture());
-        Debug.Log("Get Texture function called");
-
-        Debug.Log("here is the url of image = " + ARuser);
+ 
+        StartCoroutine(GetTexture(ARuser.image));
     }
-    IEnumerator GetTexture()
+    IEnumerator GetTexture(string url)
     {
-        Debug.Log("Into the function");
-        WWW www = new WWW(URL);
-        Debug.Log("i don't know what to say here");
+        WWW www = new WWW(url);
         yield return www;
-        Debug.Log("Texture Downloaded");
         Texture2D texture = new Texture2D(1, 1);
-        Debug.Log("Got the texture + " + texture);
         www.LoadImageIntoTexture(texture);
-        Debug.Log("Load Image Into Texture");
         GameObject image = gameObject.transform.Find("Cube").gameObject;
-        Debug.Log("Got the cube");
         image.GetComponent<Renderer>().material.mainTexture = texture;
-        Debug.Log("paste texture to the material");
+
+        Debug.Log("texture"  + texture);
+
+        //UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        //yield return www.SendWebRequest();
+
+        //if (www.result == UnityWebRequest.Result.Success)
+        //{
+        //    Texture2D texture = DownloadHandlerTexture.GetContent(www);
+        //    GetComponent<Renderer>().material.mainTexture = texture;
+        //    GameObject image = gameObject.transform.Find("Cube").gameObject;
+        //    image.GetComponent<Renderer>().material.mainTexture = texture;
+        //}
+        //else
+        //{
+        //    Debug.Log("error" + www.error);
+        //}
     }
     private void Awake()
     {

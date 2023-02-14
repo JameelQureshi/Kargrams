@@ -60,7 +60,7 @@ public class NativeGalleryScript : MonoBehaviour
 			});
 		Debug.Log("Permission result: " + permission);
 	}
-	public void TakePicture(int maxSize)
+	public void TakePicture()
 	{
 		NativeCamera.Permission permission = NativeCamera.TakePicture((path) =>
 		{
@@ -69,7 +69,7 @@ public class NativeGalleryScript : MonoBehaviour
 			if (path != null)
 			{
 				// Create Texture from selected image
-				texture = LoadImageAtPath(path, maxSize);
+				texture = LoadImageAtPath(path);
 				if (texture == null)
 				{
 					Debug.Log("Couldn't load texture from " + path);

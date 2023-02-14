@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ARLocationPlaceAtLocations.unity
     guid: 467ac48e75b55cb4dbf6e9885ad5aafa
   - enabled: 0
-    path: Assets/Scenes/DexiMapcopy.unity
-    guid: e32fa9ae679f049bda1ae888efe49a9f
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/ExtraScene/API_Testig.unity
     guid: 3981c6bbd9a1440a79f7a07de4f722df
