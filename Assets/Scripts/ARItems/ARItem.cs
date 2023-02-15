@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 public class ARItem : MonoBehaviour
 {
@@ -41,8 +42,7 @@ public class ARItem : MonoBehaviour
 
     private void Start()
     {
- 
-        StartCoroutine(GetTexture(ARuser.image));
+        StartCoroutine(DownloadImage(ARuser.image));
     }
     IEnumerator GetTexture(string url)
     {
@@ -54,22 +54,34 @@ public class ARItem : MonoBehaviour
         image.GetComponent<Renderer>().material.mainTexture = texture;
 
         Debug.Log("texture"  + texture);
-
-        //UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
-        //yield return www.SendWebRequest();
-
-        //if (www.result == UnityWebRequest.Result.Success)
-        //{
-        //    Texture2D texture = DownloadHandlerTexture.GetContent(www);
-        //    GetComponent<Renderer>().material.mainTexture = texture;
-        //    GameObject image = gameObject.transform.Find("Cube").gameObject;
-        //    image.GetComponent<Renderer>().material.mainTexture = texture;
-        //}
-        //else
-        //{
-        //    Debug.Log("error" + www.error);
-        //}
     }
+
+    IEnumerator DownloadImage(string url)
+    {
+        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                // Get downloaded texture and save it to disk
+                Texture2D texture = DownloadHandlerTexture.GetContent(www);
+                byte[] bytes = texture.EncodeToPNG();
+                File.WriteAllBytes(Application.dataPath + "/image.png", bytes);
+
+                GameObject image = gameObject.transform.Find("Cube").gameObject;
+                image.GetComponent<Renderer>().material.mainTexture = texture;
+                // Use the texture in your game
+                // ...
+            }
+        }
+    }
+
+
     private void Awake()
     {
         if (instance != null)
