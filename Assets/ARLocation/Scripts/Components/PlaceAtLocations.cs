@@ -121,37 +121,6 @@ namespace ARLocation
             int counter = 0;
             foreach (var entry in Locations)
             {
-                //if (localLocationList.data[counter].location_type == "car")
-                //{
-                //    index = 0;
-                //    var newLoc = entry.GetLocation();
-                //    AddLocation(newLoc, index);
-
-                //}
-                //else if (localLocationList.data[counter].location_type == "bike")
-                //{
-                //    index = 1;
-                //    var newLoc = entry.GetLocation();
-                //    AddLocation(newLoc, index);
-                //}
-                //else if (localLocationList.data[counter].location_type == "bus")
-                //{
-                //    index = 2;
-                //    var newLoc = entry.GetLocation();
-                //    AddLocation(newLoc, index);
-                //}
-                //else if (localLocationList.data[counter].location_type == "cycle")
-                //{
-                //    index = 3;
-                //    var newLoc = entry.GetLocation();
-                //    AddLocation(newLoc, index);
-                //}
-                //else
-                //{
-                //    index = 0;
-                //    var newLoc = entry.GetLocation();
-                //    AddLocation(newLoc, index);
-                //}
                 var newLoc = entry.GetLocation();
                 AddLocation(newLoc, 0);
                 counter++;
