@@ -26,7 +26,7 @@ namespace ARLocation
         public double longitude ;
         public string[] LocationType;
         public GameObject[] Models;
-        private GameObject SelectedModel;
+        public GameObject SelectedModel;
         public List<string> LocationList = new List<string>();
 
         private void Awake()
@@ -174,7 +174,7 @@ namespace ARLocation
         {
              //   int prefabIndex = 1;
                 GameobjectToSpawn = Prefabs[index];
-                var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
+                var instance = PlaceAtLocation.CreatePlacedInstance(SelectedModel, location, PlacementOptions, DebugMode);
 
            
 

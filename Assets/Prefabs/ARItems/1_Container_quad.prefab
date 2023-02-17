@@ -140,7 +140,6 @@ MonoBehaviour:
   isOpened: 0
   isOpening: 0
   StopRotation: 0
-  URL: 
 --- !u!65 &8484410596029042112
 BoxCollider:
   m_ObjectHideFlags: 0

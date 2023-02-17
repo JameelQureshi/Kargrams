@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6866509718273262622}
-  m_LocalRotation: {x: 0, y: -0.8799021, z: 0, w: -0.4751551}
+  m_LocalRotation: {x: 0, y: -0.6123163, z: 0, w: -0.79061294}
   m_LocalPosition: {x: 0, y: 1.342, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children: []
@@ -128,7 +128,6 @@ MonoBehaviour:
   isOpened: 0
   isOpening: 0
   StopRotation: 0
-  URL: 
 --- !u!114 &1971231604
 MonoBehaviour:
   m_ObjectHideFlags: 0

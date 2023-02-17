@@ -82,7 +82,7 @@ public class NativeGalleryScript : MonoBehaviour
 				mySprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100.0f);
 				GetImage.sprite = mySprite;
 				GetImage.preserveAspect = true;
-				GetImage.transform.rotation = Quaternion.Euler(0, 0, 90);
+				GetImage.transform.rotation = Quaternion.Euler(0, 0, 0);
 
 				showimgpanel.SetActive(true);
 				selectImgpanel.SetActive(false);
@@ -137,7 +137,7 @@ public class NativeGalleryScript : MonoBehaviour
 	//test
 	IEnumerator UploadimageUsingFormData()
 	{
-		texture = DuplicateTexture(texture);
+		//texture = DuplicateTexture(texture);
 		byte[] img = texture.EncodeToJPG();
 
 		WWWForm formrequest = new WWWForm();
@@ -168,12 +168,9 @@ public class NativeGalleryScript : MonoBehaviour
 		}
 	}
 
-	Texture2D DuplicateTexture(Texture2D source)
-	{
-		byte[] pix = source.GetRawTextureData();
-		Texture2D readableText = new Texture2D(source.width, source.height, source.format, false);
-		readableText.LoadRawTextureData(pix);
-		readableText.Apply();
-		return readableText;
-	}
+	
+
+
+
+
 }

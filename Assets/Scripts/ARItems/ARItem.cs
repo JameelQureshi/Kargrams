@@ -38,11 +38,11 @@ public class ARItem : MonoBehaviour
     public bool isOpening = false;
     public bool StopRotation = false;
 
-    public string URL;
+
 
     private void Start()
     {
-        StartCoroutine(DownloadImage(ARuser.image));
+       StartCoroutine(GetTexture(ARuser.image));
     }
     IEnumerator GetTexture(string url)
     {
@@ -52,34 +52,9 @@ public class ARItem : MonoBehaviour
         www.LoadImageIntoTexture(texture);
         GameObject image = gameObject.transform.Find("Cube").gameObject;
         image.GetComponent<Renderer>().material.mainTexture = texture;
-
-        Debug.Log("texture"  + texture);
     }
 
-    IEnumerator DownloadImage(string url)
-    {
-        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
-        {
-            yield return www.SendWebRequest();
 
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.error);
-            }
-            else
-            {
-                // Get downloaded texture and save it to disk
-                Texture2D texture = DownloadHandlerTexture.GetContent(www);
-                byte[] bytes = texture.EncodeToPNG();
-                File.WriteAllBytes(Application.dataPath + "/image.png", bytes);
-
-                GameObject image = gameObject.transform.Find("Cube").gameObject;
-                image.GetComponent<Renderer>().material.mainTexture = texture;
-                // Use the texture in your game
-                // ...
-            }
-        }
-    }
 
 
     private void Awake()

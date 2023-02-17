@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LoadTextureFromServer : MonoBehaviour
+
 {   public static LoadTextureFromServer instance;
+
     public string URL;
 
     private void Awake()
@@ -30,6 +32,6 @@ public class LoadTextureFromServer : MonoBehaviour
 
         Texture2D texture = new Texture2D(1, 1);
         www.LoadImageIntoTexture(texture);
-        GetComponentInChildren< Renderer>().material.mainTexture = texture;
+        gameObject.GetComponent< Renderer>().material.mainTexture = texture;
     }
 }
