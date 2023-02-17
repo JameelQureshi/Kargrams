@@ -428,6 +428,7 @@ namespace ARLocation
             instance.GetComponentInChildren<ARItem>().ARuser = LocationDataManager.instance.users[PlaceAtLocations.UsersCounter];
            
             AddPlaceAtComponent(instance, location, options, useDebugMode);
+
             return instance;
         }
         public static PlaceAtLocation AddPlaceAtComponent(GameObject go, Location location, PlaceAtOptions options,

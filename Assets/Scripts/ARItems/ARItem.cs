@@ -38,11 +38,12 @@ public class ARItem : MonoBehaviour
     public bool isOpening = false;
     public bool StopRotation = false;
 
-
+    LocationRoot locationRoot;
 
     private void Start()
     {
        StartCoroutine(GetTexture(ARuser.image));
+
     }
     IEnumerator GetTexture(string url)
     {

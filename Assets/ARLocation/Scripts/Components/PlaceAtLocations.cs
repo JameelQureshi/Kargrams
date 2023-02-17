@@ -74,6 +74,8 @@ namespace ARLocation
         public bool canCalculateDistance = false;
         public int RadiusToPlaceInAR;
         private Mapbox.Unity.Location.Location currentLocation;
+
+        LocationRoot localLocationList;
         private void Update()
         {
 
@@ -117,34 +119,50 @@ namespace ARLocation
 
             int index;
             int counter = 0;
+ 
+          
+            
+
+
             foreach (var entry in Locations)
             {
                 var newLoc = entry.GetLocation();
                 AddLocation(newLoc, 0);
                 counter++;
                 Debug.Log(" UsersCounter" + UsersCounter);
-                //index++;
+            
                 canCalculateDistance = true;
+                UsersCounter++;
             }
-            UsersCounter++;
+            
             //DebugLocationOnCanvas();
         }
         private void DebugLocationOnCanvas()
         {
             foreach (GameObject item in instances)
             {
-               // pinLocationsText.text = pinLocationsText.text + "Pin: " + item.GetComponent<ARItem>().ARuser.lat + " " + item.GetComponent<ARItem>().ARuser.lng + "\n";
+               
+            // pinLocationsText.text = pinLocationsText.text + "Pin: " + item.GetComponent<ARItem>().ARuser.lat + " " + item.GetComponent<ARItem>().ARuser.lng + "\n";
             }
         }
 
         public void AddLocation(Location location, int index)
         {
+
                 GameobjectToSpawn = Prefabs[index];
                 var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
 
-                instance.name = $"{gameObject.name} - {locations.Count}";
+            //foreach (Datum datum in localLocationList.data)
+            //{
+            //    Debug.Log("heck" + datum.id);
+            //}
+
+
+            instance.name = $"{gameObject.name} - {locations.Count}";
                 locations.Add(location);
                 instances.Add(instance);
+
+           
 
         }
     }
