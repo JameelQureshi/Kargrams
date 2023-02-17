@@ -111,9 +111,7 @@ namespace ARLocation
 
                 Latitude  = locations.LocationInput.Location.Latitude;
                 longitude  = locations.LocationInput.Location.Longitude;
-                
-                //location.LocationInput.Location.Latitude = Lati[i];
-                //location.LocationInput.Location.Longitude = Lon[i];
+
                 Locations.Add(locations);
             }
 
@@ -141,11 +139,8 @@ namespace ARLocation
 
         public void AddLocation(Location location, int index)
         {
-             //   int prefabIndex = 1;
                 GameobjectToSpawn = Prefabs[index];
                 var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
-
-           
 
                 instance.name = $"{gameObject.name} - {locations.Count}";
                 locations.Add(location);
