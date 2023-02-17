@@ -174,13 +174,14 @@ namespace ARLocation
         {
              //   int prefabIndex = 1;
                 GameobjectToSpawn = Prefabs[index];
-                var instance = PlaceAtLocation.CreatePlacedInstance(SelectedModel, location, PlacementOptions, DebugMode);
+                var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
 
            
 
                 instance.name = $"{gameObject.name} - {locations.Count}";
                 locations.Add(location);
                 instances.Add(instance);
+
         }
     }
 }
