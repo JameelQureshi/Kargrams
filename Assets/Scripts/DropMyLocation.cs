@@ -30,11 +30,12 @@ public class DropMyLocation : MonoBehaviour
     {
         if (instance != null)
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
         }
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         //  StartCoroutine(PlacementCoroutine());

@@ -27,12 +27,12 @@ public class LoadingManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Destroy(gameObject);
+         Destroy(gameObject);
         }
         else
         {
             instance = this;
-            DontDestroyOnLoad(this);
+         DontDestroyOnLoad(this);
         }
     }
     public void LoadingEnableForSeconds(float time)

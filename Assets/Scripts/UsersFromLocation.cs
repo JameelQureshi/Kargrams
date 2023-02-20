@@ -8,28 +8,21 @@ using UnityEngine.UI;
 
 public class UsersFromLocation : MonoBehaviour
 {
-    public Text GetLocation;
     private int counter = 0;
-    //public Text TempLat;
-    //public Text TempLong;
-
-   // public Text serverResponse;
     public static string message;
     private void Update()
     {
-      //  serverResponse.text = message;
     }
 
     void Start()
     {
         LoadingManager.instance.loading.SetActive(true);
-        Invoke(nameof(GetUserByLocations), 1);
+        Invoke(nameof(GetUserByLocations), 5);
     }
   
     public void GetUserByLocations()
     {
         LoadingManager.instance.loading.SetActive(true);
-      //  Debug.Log("Gettttttttttt location");
         StartCoroutine(GetLocations());
     }
 

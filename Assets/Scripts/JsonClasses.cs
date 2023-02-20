@@ -78,7 +78,8 @@ public class User
 /// <summary>
 /// 
 /// </summary>
- [Serializable]
+
+[Serializable]
 public class Datum
 {
     public int id;
