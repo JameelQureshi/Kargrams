@@ -51,8 +51,11 @@ public class ARItem : MonoBehaviour
         yield return www;
         Texture2D texture = new Texture2D(1, 1);
         www.LoadImageIntoTexture(texture);
-        GameObject image = gameObject.transform.Find("Cube").gameObject;
-        image.GetComponent<Renderer>().material.mainTexture = texture;
+        GameObject image1 = gameObject.transform.Find("Image1").gameObject;
+        image1.GetComponent<Renderer>().material.mainTexture = texture;
+
+        GameObject image2 = gameObject.transform.Find("Image2").gameObject;
+        image2.GetComponent<Renderer>().material.mainTexture = texture;
     }
 
 

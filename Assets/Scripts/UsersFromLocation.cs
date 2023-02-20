@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UsersFromLocation : MonoBehaviour
@@ -51,8 +52,9 @@ public class UsersFromLocation : MonoBehaviour
             ConsoleManager.instance.ShowMessage("Error "+ www.error);
             Debug.Log(AuthManager.BASE_URL + requestName + form);
             Debug.Log(www.error);
-          //  serverResponse.text = www.error;
             LoadingManager.instance.loading.SetActive(false);
+
+            SceneManager.LoadScene("Auth");
         }
         else
         {

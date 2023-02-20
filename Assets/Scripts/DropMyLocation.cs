@@ -89,7 +89,7 @@ public class DropMyLocation : MonoBehaviour
     public void DropLocation()
     {
         UserName = "";
-        radius = 50;
+        radius = 60;
         latitude = Input.location.lastData.latitude;
         longitude = Input.location.lastData.longitude;
         //Extra
