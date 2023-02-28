@@ -151,14 +151,7 @@ namespace ARLocation
 
                 GameobjectToSpawn = Prefabs[index];
                 var instance = PlaceAtLocation.CreatePlacedInstance(GameobjectToSpawn, location, PlacementOptions, DebugMode);
-
-            //foreach (Datum datum in localLocationList.data)
-            //{
-            //    Debug.Log("heck" + datum.id);
-            //}
-
-
-            instance.name = $"{gameObject.name} - {locations.Count}";
+                instance.name = $"{gameObject.name} - {locations.Count}";
                 locations.Add(location);
                 instances.Add(instance);
 

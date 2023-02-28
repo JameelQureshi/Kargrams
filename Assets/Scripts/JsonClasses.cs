@@ -92,7 +92,6 @@ public class Datum
     public string radius;
     public string location_type;
     public string image;
-
 }
 [Serializable]
 public class LocationRoot

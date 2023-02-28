@@ -127,6 +127,7 @@ public class AuthManager : MonoBehaviour
 
     IEnumerator CreateLocationStCoroutine(string lat, string lng, int radius, string name, string location_type)
     {
+        LoadingManager.instance.loading.SetActive(true);
         NativeGalleryScript.instance.texture = DuplicateTexture(NativeGalleryScript.instance.texture);
         //NativeGalleryScript.instance.texture = DuplicateTexture(NativeGalleryScript.instance.texture);
         byte[] img = NativeGalleryScript.instance.texture.EncodeToJPG();

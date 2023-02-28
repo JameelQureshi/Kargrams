@@ -54,7 +54,7 @@ public class ARItem : MonoBehaviour
         GameObject image1 = gameObject.transform.Find("Image1").gameObject;
         image1.GetComponent<Renderer>().material.mainTexture = texture;
 
-        GameObject image2 = gameObject.transform.Find("Image2").gameObject;
+        GameObject image2 = gameObject.transform.Find(" ").gameObject;
         image2.GetComponent<Renderer>().material.mainTexture = texture;
     }
 
