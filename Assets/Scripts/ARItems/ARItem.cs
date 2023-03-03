@@ -42,7 +42,7 @@ public class ARItem : MonoBehaviour
 
     private void Start()
     {
-       StartCoroutine(GetTexture(ARuser.image));
+       StartCoroutine(DownloadImage(ARuser.image));
 
     }
     IEnumerator GetTexture(string url)
@@ -54,10 +54,36 @@ public class ARItem : MonoBehaviour
         GameObject image1 = gameObject.transform.Find("Image1").gameObject;
         image1.GetComponent<Renderer>().material.mainTexture = texture;
 
-        GameObject image2 = gameObject.transform.Find(" ").gameObject;
+        GameObject image2 = gameObject.transform.Find("Image2").gameObject;
         image2.GetComponent<Renderer>().material.mainTexture = texture;
-    }
 
+
+
+       
+
+
+    }
+    IEnumerator DownloadImage(string url)
+    {
+        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(url))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Texture2D texture = DownloadHandlerTexture.GetContent(www);
+                GameObject image1 = gameObject.transform.Find("Image1").gameObject;
+                image1.GetComponent<Renderer>().material.mainTexture = texture;
+
+                GameObject image2 = gameObject.transform.Find("Image2").gameObject;
+                image2.GetComponent<Renderer>().material.mainTexture = texture;
+            }
+        }
+    }
 
 
 
