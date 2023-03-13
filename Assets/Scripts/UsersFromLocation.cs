@@ -18,7 +18,7 @@ public class UsersFromLocation : MonoBehaviour
     void Start()
     {
         LoadingManager.instance.loading.SetActive(true);
-        Invoke(nameof(GetUserByLocations), 5);
+        Invoke(nameof(GetUserByLocations), 2 );
     }
   
     public void GetUserByLocations()
@@ -45,16 +45,27 @@ public class UsersFromLocation : MonoBehaviour
 
         using UnityWebRequest www = UnityWebRequest.Post(AuthManager.BASE_URL + requestName, form);
         www.SetRequestHeader("Authorization", "Bearer " + AuthManager.Token);
+      
         yield return www.SendWebRequest();
         if (www.isNetworkError || www.isHttpError)
         {
-           // serverResponse.text = www.downloadHandler.text;
-            ConsoleManager.instance.ShowMessage("Error "+ www.error);
-            Debug.Log(AuthManager.BASE_URL + requestName + form);
-            Debug.Log(www.error);
-            LoadingManager.instance.loading.SetActive(false);
 
-            SceneManager.LoadScene("Auth");
+            Root allLocationRot = JsonUtility.FromJson<Root>(www.downloadHandler.text);
+            //Debug.Log(allLocationRot.data);
+            if (allLocationRot.data == "Locations not found")
+            {
+                LoadingManager.instance.loading.SetActive(false);
+                ConsoleManager.instance.ShowMessage("Locations not found");
+            }
+            else
+            {
+                PlayerPrefs.DeleteAll();
+                ConsoleManager.instance.ShowMessage("Error " + www.error);
+                LoadingManager.instance.loading.SetActive(false);
+                SceneManager.LoadScene("Auth");
+            }
+
+
         }
         else
         {

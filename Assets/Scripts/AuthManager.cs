@@ -239,7 +239,7 @@ public class AuthManager : MonoBehaviour
         root = JsonUtility.FromJson<Root>(json);
         IsLogged = "true";
         Debug.Log("Login Success Function");
-        Debug.Log("Name = "+ root.data.email);
+//        Debug.Log("Name = "+ root.data.email);
         Token = root.token;
         Debug.Log("token" + Token);
        // int locationcount = root.locations.Count;

@@ -56,12 +56,15 @@ public class Data
 public class Root
 {
     public string message;
-    public Data data;
+   // public Data data;
     public string token;
- 
- 
+    public bool success;
+    public string data;
 
 }
+
+
+
 [Serializable]
 public class User
 {
