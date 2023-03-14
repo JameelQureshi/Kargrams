@@ -97,6 +97,7 @@ public class AuthManager : MonoBehaviour
             {
                 InputUIManager.instance.LoadingPanel.SetActive(false);
                 Debug.Log(www.downloadHandler.text);
+                SceneManager.LoadScene("Auth");
             }
         }
     }
